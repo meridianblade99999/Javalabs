@@ -15,6 +15,7 @@ public class IntList {
     }
 
     public void add(int value) {
+        expandIfFull();
         data[index] = value;
         index++;
     }
@@ -23,15 +24,15 @@ public class IntList {
         return data[index];
     }
 
-    public int remove(int index) {
-        if (index < 0 || index >= this.index) {
+    public int remove(int removeIndex) {
+        if (removeIndex < 0 || removeIndex >= index) {
             throw new IllegalArgumentException("Index out of bounds");
         }
-        int value = data[index];
-        for (int i = index; i < index; i++) {
+        int value = data[removeIndex];
+        for (int i = removeIndex; i < index - 1; i++) {
             data[i] = data[i + 1];
         }
-        this.index--;
+        index--;
         return value;
     }
 
@@ -68,6 +69,10 @@ public class IntList {
         }
         sb.append("]");
         return sb.toString();
+    }
+
+    public void clear() {
+        index = 0;
     }
 
 }
