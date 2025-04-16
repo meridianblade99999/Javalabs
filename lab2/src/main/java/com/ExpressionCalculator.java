@@ -28,7 +28,7 @@ public class ExpressionCalculator {
      * Проверяет, является ли символ оператором (+, -, *, /)
      *
      * @param c Символ для проверки
-     * @return true, если символ является оператором, false не являептся
+     * @return true, если символ является оператором, false не является
      */
     private static boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/';
